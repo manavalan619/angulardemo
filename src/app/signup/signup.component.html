@@ -1,0 +1,111 @@
+<form ngNativeValidate>
+    <div class="row">
+        <div class="col">
+            <label class="col"> Email:</label>
+            <div class="col">
+                <input type="Mail" id="email" class="form-control" required="true" [(ngModel)]="signup.email" #email="ngModel" name="email" placeholder="Enter your Email">
+                <!-- validation  -->
+                <div *ngIf="email.invalid && (email.dirty || email.touched ) " class="validate">
+                    *Email is required
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col ">
+            <label class="col ">Password:</label>
+            <div class="col ">
+                <input type="Password" minlength="5" class="form-control" required="true" [(ngModel)]="signup.password" #password="ngModel" name="password " placeholder="Enter your Password">
+                <div *ngIf="password.invalid &&(password.dirty || password.touched ) " class="validate ">
+                    *Password is required
+                    <div *ngIf="password.errors.minlength" class="validate">
+                        *Password must be at least 5 characters.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><br>
+
+    <div class="col">
+        <label class="col">Confirm Password:</label>
+        <input type="Password" class="form-control" required="true" [(ngModel)]="confirm_password" #conpassword="ngModel" name="conpassword" placeholder="Enter your Confirm Password">
+        <div *ngIf="conpassword.invalid && (conpassword.dirty || conpassword.touched ) " class="validate">
+            *Confirm password is required
+        </div>
+
+        <div *ngIf="confirm_password_alter " class="validate ">
+            *Password is Mismatch
+        </div>
+    </div>
+    <br>
+
+
+    <div class="col">
+        <label class="col">Address:</label>
+        <input type="Address" class="form-control" required="true" [(ngModel)]="signup.address" #address="ngModel" name="address" placeholder="Enter your Address">
+        <div *ngIf="address.invalid &&(address.dirty || address.touched )" class="validate">
+            *Address is required
+        </div>
+    </div>
+    <br>
+
+    <div class="col ">
+        <label class="col ">Address2:</label>
+        <input type="Address " class="form-control" required="true" #address2="ngModel" [(ngModel)]="signup.address2" name="address2" placeholder="Enter your Alternative Address">
+        <div *ngIf="address2.invalid && (address2.dirty || address2.touched ) " class="validate ">
+            *Alternative address is required
+        </div>
+    </div>
+    <br>
+
+
+
+    <div class="row ">
+        <div class="col ">
+            <label class="col ">City:</label>
+            <div class="col ">
+                <input type="Address" class="form-control" required="true" name="city" #city="ngModel" [(ngModel)]="signup.city" placeholder="Enter your City">
+                <div *ngIf="city.invalid&&(city.dirty || city.touched ) " class="validate ">
+                    *City is required
+                </div>
+            </div>
+        </div>
+        <br>
+
+
+        <div class="col ">
+            <label class="col ">State:</label>
+            <div class="col ">
+                <select class="custom-select" name="state" [(ngModel)]="signup.state">
+          <option *ngFor="let list of state">{{list}}</option>
+        </select>
+            </div>
+        </div>
+
+        <div class="col ">
+            <label class="col ">Pin:</label>
+            <div class="col ">
+                <input type="number" class="form-control" required="true" #pin="ngModel" [(ngModel)]="signup.pin" name="pin" placeholder="Enter your Pin ">
+                <div *ngIf="pin.invalid&&(pin.dirty || pin.touched ) " class="validate ">
+                    *Pin is required
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <br>
+    <div class="main-body ">
+        <div class="row-sm-2">
+            <button type="button " (click)="Submit() " required="true " id="inputPassword " class="btn btn-primary ">Submit</button>
+        </div>
+    </div>
+</form>
+<div class="main-body">
+    <div class="row">
+        <button type="button" class="btn btn-primary " routerLink="">Home</button>
+        <button type="button " class="btn btn-info " routerLink="/login">View</button><br>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="card" style="width: 15cm;height: 14cm;">
+    <div class=" card-header" style="text-align: center;color:crimson;">
+        <h3> Login for View the User's details </h3>
+    </div>
+    <div class="card-body">
+        <label>UserName:</label>
+        <input type="email" class="input form-control" name="username" [(ngModel)]="login_deatils.username"><br>
+        <label>Password:</label>
+        <input type="password" class="input form-control" name="password" [(ngModel)]="login_deatils.password">
+    </div>
+    <div class="card-footer">
+        <button type="button" style="margin-left: 12cm;" class='button btn btn-success' (click)="login()">Login</button>
+        <button type="button" class='button btn btn-success' routerLink="/">Home</button>&nbsp;
+
+    </div>
+</div>

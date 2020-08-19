@@ -1,0 +1,68 @@
+<table class="table">
+    <thead class=" thead-light ">
+        <th scope="col ">S.No</th>
+        <th scope="col ">Email</th>
+        <th scope="col ">Address</th>
+        <th scope="col ">Address2</th>
+        <th scope="col ">City</th>
+        <th scope="col ">Pin</th>
+        <th scope="col ">Action</th>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let users of userdetails; let i=index ">
+            <td>{{i+1}} </td>
+            <td>{{users.email}}</td>
+            <td>{{users.address}}</td>
+            <td>{{users.address2}}</td>
+            <td>{{users.city}}</td>
+            <td>{{users.pin}}</td>
+            <div class="row ">
+                <div *ngIf="delete_button">
+                    <td><button type="button" (click)="delete(i)" class="btn btn-danger ">Delete</button></td>
+                </div>
+                <td><button type="button" (click)="edit(i)" class="btn btn-secondary ">Edit</button></td>
+                <td><button type="button" (click)="editby(i)" class="btn btn-secondary ">EditBy</button></td>
+
+            </div>
+
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="card_button ">
+    <div class="card" style="width: 15cm;height: 15cm;align-content: center; ">
+        <div class="card-body ">
+
+            <label>Email:</label>
+            <input type="Mail " class="form-control " [(ngModel)]="mails " name="email ">
+            <label>Password:</label>
+            <input type="password " class="form-control " [(ngModel)]="password " name="password ">
+            <label>Address:</label>
+            <input type="Address " class="form-control " [(ngModel)]="address " name="address ">
+            <label>Address2:</label>
+            <input type="Address " class="form-control " [(ngModel)]="address2 " name="address2 ">
+            <label>City:</label>
+            <input type="Address " class="form-control " [(ngModel)]="city " name="city ">
+            <label>Pin:</label>
+            <input type="number " class="form-control " [(ngModel)]="pin " name="pin ">
+
+            <div class="row " style="margin-top: 1cm;margin-left: 12cm; ">
+                <button type="button " (click)="save(index_edit) " class=" btn btn-success ">Save</button>
+            </div>
+            <div class="row " style="margin-right: 6cm;margin-top: 0cm; ">
+                <button type="button " (click)="cancel() " class="btn btn-danger ">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="main-body" style="margin-top: 3cm;">
+    <div class="row">
+        <button type="button" class="btn btn-info" routerLink="/signup">Sign up</button>
+        <button type="button" class="btn btn-info" routerLink="">Home</button>
+
+    </div>
+</div>
